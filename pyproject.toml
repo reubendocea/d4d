@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "d4d-surgical"
+version = "0.1.0"
+description = "Data Collection 4D Surgical - Tools for loading and evaluating surgical stereo data"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "D4D Surgical Team"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "opencv-python>=4.5.0",
+    "numpy>=1.19.0",
+    "PyYAML>=5.4.0",
+    "scikit-learn>=0.24.0",
+    "tqdm>=4.60.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "flake8>=3.8",
+]
+visualization = [
+    "pyvista>=0.37.0",
+    "open3d>=0.13.0",
+]
+
+[project.scripts]
+d4d-loader = "d4d_surgical.loader:main"
+d4d-evaluator = "d4d_surgical.evaluator:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/d4d-surgical"
+Repository = "https://github.com/your-org/d4d-surgical.git"
+Issues = "https://github.com/your-org/d4d-surgical/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["d4d_surgical*"] 
