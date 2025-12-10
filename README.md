@@ -4,6 +4,81 @@ Dataset loader for **D4D - The Dresden Dataset for 4D Reconstruction of Non-Rigi
 
 Hierarchical dataset loader for surgical stereo reconstruction with Open3D visualization.
 
+**Contents:** [Experimental Setup](#experimental-setup) | [Sample Sessions](#sample-sessions) | [Installation](#installation) | [Usage](#usage) | [Dataset Structure](#dataset-structure) | [Dependencies](#dependencies)
+
+---
+
+## Experimental Setup
+
+<p align="center">
+  <img src="files/ExperimentalScene_1_blur_crop.jpg" width="700" alt="Experimental Setup"/>
+</p>
+
+Data were acquired from porcine cadaver sessions using a **da Vinci Xi** stereo endoscope and a **Zivid** structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.
+
+## Sample Sessions
+
+Each session contains multiple clips showing tissue manipulations with paired endoscopic video and structured-light geometry.
+
+**Summary images** display (left to right, for each clip row):
+1. **Left endoscopic image** - Rectified stereo camera view
+2. **SLC RGB rendering** - Point cloud rendered from the curated camera pose
+3. **Stereo depth map** - Depth estimated from stereo matching
+4. **SLC depth rendering** - Structured-light depth from the curated pose
+
+**Quick Navigation:** [Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3)
+
+---
+
+<a id="session-1"></a>
+### Specimen 1 - Session 2025_03_06-16_49_40 &nbsp; [Next →](#session-2)
+
+<p align="center">
+  <img src="files/specimen_1_2025_03_06-16_49_40_summary.jpg" width="800" alt="Specimen 1 Summary"/>
+</p>
+
+<table>
+<tr>
+<td align="center"><b><a href="files/2025_03_06-16_49_40_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="files/2025_03_06-16_49_40_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="files/2025_03_06-16_49_40_compressed.mp4">Endoscope Video</a></b><br/><video src="files/2025_03_06-16_49_40_compressed.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="files/2025_03_06-16_49_40_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="files/2025_03_06-16_49_40_zivid_startend.mp4" controls height="280"></video></td>
+</tr>
+</table>
+
+---
+
+<a id="session-2"></a>
+### Specimen 5 - Session 2025_09_09-15_40_48 &nbsp; [← Prev](#session-1) | [Next →](#session-3)
+
+<p align="center">
+  <img src="files/specimen_5_2025_09_09-15_40_48_summary.jpg" width="800" alt="Specimen 5 Session 1 Summary"/>
+</p>
+
+<table>
+<tr>
+<td align="center"><b><a href="files/2025_09_09-15_40_48_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="files/2025_09_09-15_40_48_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="files/2025_09_09-15_40_48_compressed.mp4">Endoscope Video</a></b><br/><video src="files/2025_09_09-15_40_48_compressed.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="files/2025_09_09-15_40_48_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="files/2025_09_09-15_40_48_zivid_startend.mp4" controls height="280"></video></td>
+</tr>
+</table>
+
+---
+
+<a id="session-3"></a>
+### Specimen 5 - Session 2025_09_09-15_44_02 &nbsp; [← Prev](#session-2)
+
+<p align="center">
+  <img src="files/specimen_5_2025_09_09-15_44_02_summary.jpg" width="800" alt="Specimen 5 Session 2 Summary"/>
+</p>
+
+<table>
+<tr>
+<td align="center"><b><a href="files/2025_09_09-15_44_02_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="files/2025_09_09-15_44_02_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="files/2025_09_09-15_44_02_compressed.mp4">Endoscope Video</a></b><br/><video src="files/2025_09_09-15_44_02_compressed.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="files/2025_09_09-15_44_02_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="files/2025_09_09-15_44_02_zivid_startend.mp4" controls height="280"></video></td>
+</tr>
+</table>
+
 ## Installation
 
 ```bash

@@ -529,14 +529,17 @@ class D4D:
     def get_specimen_names(self) -> List[str]:
         """Get list of specimen directory names."""
         specimens = list(self.path.glob('specimen_*'))
-        return sorted([d.name for d in specimens if d.is_dir()])
+        return sorted([d.name for d in specimens
+                       if d.is_dir() and 'ambiguous' not in d.name and 'tar.gz' not in d.name])
 
     def __iter__(self) -> Iterator[Specimen]:
         """Iterate over specimens in the dataset."""
         specimen_dirs = list(self.path.glob('specimen_*'))
 
         for specimen_dir in sorted(specimen_dirs):
-            if specimen_dir.is_dir():
+            if (specimen_dir.is_dir() and
+                    'ambiguous' not in specimen_dir.name and
+                    'tar.gz' not in specimen_dir.name):
                 yield Specimen(specimen_dir, self)
 
     def __repr__(self) -> str:
