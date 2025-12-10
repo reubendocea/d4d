@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D4D - Dresden Dataset for 4D Reconstruction</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a svg {
+            flex-shrink: 0;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--card-bg);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        /* Setup image */
+        .setup-img {
+            display: block;
+            max-width: 700px;
+            width: 100%;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Carousel */
+        .carousel-container {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-top: 20px;
+        }
+
+        .carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .carousel-title {
+            font-size: 1.4rem;
+            color: var(--text);
+        }
+
+        .carousel-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .carousel-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .carousel-btn:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+        }
+
+        .carousel-indicator {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .carousel-slide {
+            display: none;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        /* Summary image */
+        .summary-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .summary-description {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .summary-description strong {
+            color: var(--text);
+        }
+
+        .summary-description ol {
+            margin: 10px 0 0 20px;
+        }
+
+        .summary-description li {
+            margin: 4px 0;
+        }
+
+        /* Video grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .video-card h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .video-card video {
+            height: 300px;
+            max-width: 100%;
+            border-radius: 6px;
+            background: #000;
+        }
+
+        /* Code blocks */
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        code {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+        }
+
+        .inline-code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        /* Structure tree */
+        .structure-tree {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        /* Dependencies */
+        .deps-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .dep-badge {
+            background: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #93c5fd;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .carousel-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>D4D Dataset</h1>
+            <p>The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#setup"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Experimental Setup</a></li>
+            <li><a href="#sessions"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Sample Sessions</a></li>
+            <li><a href="#installation"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Installation</a></li>
+            <li><a href="#usage"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Usage</a></li>
+            <li><a href="#structure"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Dataset Structure</a></li>
+            <li><a href="https://github.com/reubendocea/d4d"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg> GitHub</a></li>
+        </ul>
+    </nav>
+
+    <section id="setup">
+        <div class="container">
+            <h2>Experimental Setup</h2>
+            <img src="../files/ExperimentalScene_1_blur_crop.jpg" alt="Experimental Setup" class="setup-img">
+            <p>Data were acquired from porcine cadaver sessions using a <strong>da Vinci Xi</strong> stereo endoscope and a <strong>Zivid</strong> structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.</p>
+        </div>
+    </section>
+
+    <section id="sessions">
+        <div class="container">
+            <h2>Sample Sessions</h2>
+            <p>Each session contains multiple clips showing tissue manipulations with paired endoscopic video and structured-light geometry.</p>
+
+            <div class="carousel-container">
+                <div class="carousel-header">
+                    <h3 class="carousel-title" id="session-title">Specimen 1 - Session 2025_03_06-16_49_40</h3>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn" id="prev-btn" onclick="prevSlide()">← Previous</button>
+                        <span class="carousel-indicator"><span id="current-slide">1</span> / <span id="total-slides">3</span></span>
+                        <button class="carousel-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+                    </div>
+                </div>
+
+                <div class="summary-description">
+                    <strong>Summary images</strong> display (left to right, for each clip row):
+                    <ol>
+                        <li>Left endoscopic image (rectified stereo view)</li>
+                        <li>SLC RGB rendering (point cloud from curated pose)</li>
+                        <li>Stereo depth map (from stereo matching)</li>
+                        <li>SLC depth rendering (structured-light depth)</li>
+                    </ol>
+                </div>
+
+                <!-- Slide 1 -->
+                <div class="carousel-slide active" data-title="Specimen 1 - Session 2025_03_06-16_49_40">
+                    <img src="../files/specimen_1_2025_03_06-16_49_40_summary.jpg" alt="Session 1 Summary" class="summary-img">
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <h4>Combined 2x2 View</h4>
+                            <video controls>
+                                <source src="../files/2025_03_06-16_49_40_combined_2x2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-card">
+                            <h4>Endoscope Video</h4>
+                            <video controls>
+                                <source src="../files/2025_03_06-16_49_40_compressed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-card">
+                            <h4>Zivid Start/End</h4>
+                            <video controls>
+                                <source src="../files/2025_03_06-16_49_40_zivid_startend.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide" data-title="Specimen 5 - Session 2025_09_09-15_40_48">
+                    <img src="../files/specimen_5_2025_09_09-15_40_48_summary.jpg" alt="Session 2 Summary" class="summary-img">
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <h4>Combined 2x2 View</h4>
+                            <video controls>
+                                <source src="../files/2025_09_09-15_40_48_combined_2x2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-card">
+                            <h4>Endoscope Video</h4>
+                            <video controls>
+                                <source src="../files/2025_09_09-15_40_48_compressed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-card">
+                            <h4>Zivid Start/End</h4>
+                            <video controls>
+                                <source src="../files/2025_09_09-15_40_48_zivid_startend.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide" data-title="Specimen 5 - Session 2025_09_09-15_44_02">
+                    <img src="../files/specimen_5_2025_09_09-15_44_02_summary.jpg" alt="Session 3 Summary" class="summary-img">
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <h4>Combined 2x2 View</h4>
+                            <video controls>
+                                <source src="../files/2025_09_09-15_44_02_combined_2x2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-card">
+                            <h4>Endoscope Video</h4>
+                            <video controls>
+                                <source src="../files/2025_09_09-15_44_02_compressed.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-card">
+                            <h4>Zivid Start/End</h4>
+                            <video controls>
+                                <source src="../files/2025_09_09-15_44_02_zivid_startend.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation">
+        <div class="container">
+            <h2>Installation</h2>
+            <p>Requires <strong>Python 3.10</strong></p>
+            <pre><code>pip install -e .</code></pre>
+        </div>
+    </section>
+
+    <section id="usage">
+        <div class="container">
+            <h2>Usage</h2>
+            <pre><code>from d4d.loader import D4D
+from visualize import visualize_clip_state
+
+# Load dataset
+d4d = D4D("/path/to/preprocessed_restructured")
+
+# Iterate: Dataset → Specimen → Session → Clip
+for specimen in d4d:
+    for session in specimen:
+        for clip in session:
+            print(f"{clip.name}: {len(clip.left_img_paths)} images, {clip.duration:.1f}s")
+
+# Access specific clip
+specimen = next(iter(d4d))
+session = next(iter(specimen))
+clip = next(iter(session))
+
+# Clip properties
+clip.left_img_paths          # List of left image paths
+clip.right_img_paths         # List of right image paths
+clip.stereo_depth_paths      # List of depth map paths
+clip.pointclouds             # Dict with 'start'/'end' Zivid PLY paths
+clip.endoscope_params        # Endoscope camera parameters
+clip.zivid_params            # Zivid camera parameters
+clip.poses                   # Dict with 'start'/'end' curated camera poses
+
+# Visualize with curated poses
+if clip.pointclouds.get('start') and clip.left_img_paths and clip.stereo_depth_paths:
+    visualize_clip_state(
+        clip.pointclouds['start'],
+        clip.left_img_paths[0],
+        clip.stereo_depth_paths[0],
+        clip.endoscope_params,
+        clip.poses['start']
+    )</code></pre>
+        </div>
+    </section>
+
+    <section id="structure">
+        <div class="container">
+            <h2>Dataset Structure</h2>
+            <div class="structure-tree">
+d4d_dataset/
+└── specimen_1/
+    └── 2025_03_06-16_49_40/
+        ├── clips.json
+        ├── camera_info/
+        ├── pointcloud/
+        └── clips/
+            └── Clip_1/
+                ├── left_images_rect/
+                ├── right_images_rect/
+                ├── stereo_depth/
+                └── camera_info/
+            </div>
+        </div>
+    </section>
+
+    <section id="dependencies">
+        <div class="container">
+            <h2>Dependencies</h2>
+            <div class="deps-list">
+                <span class="dep-badge">numpy</span>
+                <span class="dep-badge">opencv-python</span>
+                <span class="dep-badge">PyYAML</span>
+                <span class="dep-badge">open3d</span>
+                <span class="dep-badge">trimesh</span>
+                <span class="dep-badge">tqdm</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>D4D Dataset - <a href="https://github.com/reubendocea/d4d">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            document.getElementById('session-title').textContent = slides[currentSlide].dataset.title;
+
+            document.getElementById('prev-btn').disabled = currentSlide === 0;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+
+            // Pause all videos when switching slides
+            document.querySelectorAll('video').forEach(v => v.pause());
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Initialize
+        updateSlide();
+    </script>
+</body>
+</html>

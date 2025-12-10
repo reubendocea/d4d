@@ -4,6 +4,8 @@ Dataset loader for **D4D - The Dresden Dataset for 4D Reconstruction of Non-Rigi
 
 Hierarchical dataset loader for surgical stereo reconstruction with Open3D visualization.
 
+> **View the [Project Page](https://reubendocea.github.io/d4d/) for the best experience with fullscreen videos and interactive navigation.**
+
 **Contents:** [Experimental Setup](#experimental-setup) | [Sample Sessions](#sample-sessions) | [Installation](#installation) | [Usage](#usage) | [Dataset Structure](#dataset-structure) | [Dependencies](#dependencies)
 
 ---
@@ -80,6 +82,8 @@ Each session contains multiple clips showing tissue manipulations with paired en
 </table>
 
 ## Installation
+
+Requires **Python 3.10**
 
 ```bash
 pip install -e .
