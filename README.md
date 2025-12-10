@@ -13,7 +13,7 @@ Hierarchical dataset loader for surgical stereo reconstruction with Open3D visua
 ## Experimental Setup
 
 <p align="center">
-  <img src="files/ExperimentalScene_1_blur_crop.jpg" width="700" alt="Experimental Setup"/>
+  <img src="docs/files/ExperimentalScene_1_blur_crop.jpg" width="700" alt="Experimental Setup"/>
 </p>
 
 Data were acquired from porcine cadaver sessions using a **da Vinci Xi** stereo endoscope and a **Zivid** structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.
@@ -36,14 +36,14 @@ Each session contains multiple clips showing tissue manipulations with paired en
 ### Specimen 1 - Session 2025_03_06-16_49_40 &nbsp; [Next →](#session-2)
 
 <p align="center">
-  <img src="files/specimen_1_2025_03_06-16_49_40_summary.jpg" width="800" alt="Specimen 1 Summary"/>
+  <img src="docs/files/specimen_1_2025_03_06-16_49_40_summary.jpg" width="800" alt="Specimen 1 Summary"/>
 </p>
 
 <table>
 <tr>
-<td align="center"><b><a href="files/2025_03_06-16_49_40_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="files/2025_03_06-16_49_40_combined_2x2.mp4" controls height="280"></video></td>
-<td align="center"><b><a href="files/2025_03_06-16_49_40_compressed.mp4">Endoscope Video</a></b><br/><video src="files/2025_03_06-16_49_40_compressed.mp4" controls height="280"></video></td>
-<td align="center"><b><a href="files/2025_03_06-16_49_40_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="files/2025_03_06-16_49_40_zivid_startend.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_03_06-16_49_40_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="docs/files/2025_03_06-16_49_40_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_03_06-16_49_40_compressed.mp4">Endoscope Video</a></b><br/><video src="docs/files/2025_03_06-16_49_40_compressed.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_03_06-16_49_40_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="docs/files/2025_03_06-16_49_40_zivid_startend.mp4" controls height="280"></video></td>
 </tr>
 </table>
 
@@ -53,14 +53,14 @@ Each session contains multiple clips showing tissue manipulations with paired en
 ### Specimen 5 - Session 2025_09_09-15_40_48 &nbsp; [← Prev](#session-1) | [Next →](#session-3)
 
 <p align="center">
-  <img src="files/specimen_5_2025_09_09-15_40_48_summary.jpg" width="800" alt="Specimen 5 Session 1 Summary"/>
+  <img src="docs/files/specimen_5_2025_09_09-15_40_48_summary.jpg" width="800" alt="Specimen 5 Session 1 Summary"/>
 </p>
 
 <table>
 <tr>
-<td align="center"><b><a href="files/2025_09_09-15_40_48_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="files/2025_09_09-15_40_48_combined_2x2.mp4" controls height="280"></video></td>
-<td align="center"><b><a href="files/2025_09_09-15_40_48_compressed.mp4">Endoscope Video</a></b><br/><video src="files/2025_09_09-15_40_48_compressed.mp4" controls height="280"></video></td>
-<td align="center"><b><a href="files/2025_09_09-15_40_48_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="files/2025_09_09-15_40_48_zivid_startend.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-15_40_48_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="docs/files/2025_09_09-15_40_48_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-15_40_48_compressed.mp4">Endoscope Video</a></b><br/><video src="docs/files/2025_09_09-15_40_48_compressed.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-15_40_48_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="docs/files/2025_09_09-15_40_48_zivid_startend.mp4" controls height="280"></video></td>
 </tr>
 </table>
 
@@ -70,14 +70,14 @@ Each session contains multiple clips showing tissue manipulations with paired en
 ### Specimen 5 - Session 2025_09_09-15_44_02 &nbsp; [← Prev](#session-2)
 
 <p align="center">
-  <img src="files/specimen_5_2025_09_09-15_44_02_summary.jpg" width="800" alt="Specimen 5 Session 2 Summary"/>
+  <img src="docs/files/specimen_5_2025_09_09-15_44_02_summary.jpg" width="800" alt="Specimen 5 Session 2 Summary"/>
 </p>
 
 <table>
 <tr>
-<td align="center"><b><a href="files/2025_09_09-15_44_02_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="files/2025_09_09-15_44_02_combined_2x2.mp4" controls height="280"></video></td>
-<td align="center"><b><a href="files/2025_09_09-15_44_02_compressed.mp4">Endoscope Video</a></b><br/><video src="files/2025_09_09-15_44_02_compressed.mp4" controls height="280"></video></td>
-<td align="center"><b><a href="files/2025_09_09-15_44_02_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="files/2025_09_09-15_44_02_zivid_startend.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-15_44_02_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="docs/files/2025_09_09-15_44_02_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-15_44_02_compressed.mp4">Endoscope Video</a></b><br/><video src="docs/files/2025_09_09-15_44_02_compressed.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-15_44_02_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="docs/files/2025_09_09-15_44_02_zivid_startend.mp4" controls height="280"></video></td>
 </tr>
 </table>
 
