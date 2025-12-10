@@ -54,6 +54,24 @@
             margin: 0 auto;
         }
 
+        .dataset-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dataset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
         /* Navigation */
         nav {
             background: var(--card-bg);
@@ -322,6 +340,7 @@
         <div class="container">
             <h1>D4D Dataset</h1>
             <p>The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes</p>
+            <a href="https://doi.org/10.25532/OPARA-1033" class="dataset-btn">Download Dataset (DOI: 10.25532/OPARA-1033)</a>
         </div>
     </header>
 

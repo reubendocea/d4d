@@ -2,6 +2,10 @@
 
 Dataset loader for **D4D - The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes**.
 
+[![DOI](https://img.shields.io/badge/DOI-10.25532%2FOPARA--1033-blue)](https://doi.org/10.25532/OPARA-1033)
+
+**[Download the Dataset](https://doi.org/10.25532/OPARA-1033)**
+
 Hierarchical dataset loader for surgical stereo reconstruction with Open3D visualization.
 
 > **View the [Project Page](https://reubendocea.github.io/d4d/) for the best experience with fullscreen videos and interactive navigation.**
