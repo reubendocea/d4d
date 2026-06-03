@@ -359,21 +359,21 @@
         <div class="container">
             <h2>Experimental Setup</h2>
             <img src="files/ExperimentalScene_1_blur_crop.jpg" alt="Experimental Setup" class="setup-img">
-            <p>Data were acquired from porcine cadaver sessions using a <strong>da Vinci Xi</strong> stereo endoscope and a <strong>Zivid</strong> structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.</p>
+            <p>Data were acquired from porcine cadavers using a <strong>da Vinci Xi</strong> stereo endoscope and a <strong>Zivid</strong> structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.</p>
         </div>
     </section>
 
     <section id="sessions">
         <div class="container">
             <h2>Sample Sessions</h2>
-            <p>Each session contains multiple clips showing tissue manipulations with paired endoscopic video and structured-light geometry.</p>
+            <p>The dataset follows a three-level hierarchy: each <strong>Specimen</strong> (one porcine cadaver) contains one or more <strong>Sessions</strong> (continuous recordings, named by date and time), and each <strong>Session</strong> contains one or more <strong>Clips</strong> (the individual tissue-manipulation segments). Each slide below is one <strong>Session</strong>, and every Session holds one or more Clips with paired endoscopic video and structured-light geometry.</p>
 
             <div class="carousel-container">
                 <div class="carousel-header">
                     <h3 class="carousel-title" id="session-title">Specimen 1 - Session 2025_03_06-16_49_40</h3>
                     <div class="carousel-nav">
                         <button class="carousel-btn" id="prev-btn" onclick="prevSlide()">← Previous</button>
-                        <span class="carousel-indicator"><span id="current-slide">1</span> / <span id="total-slides">3</span></span>
+                        <span class="carousel-indicator">Sample Session <span id="current-slide">1</span> / <span id="total-slides">3</span></span>
                         <button class="carousel-btn" id="next-btn" onclick="nextSlide()">Next →</button>
                     </div>
                 </div>
@@ -518,18 +518,33 @@ if clip.pointclouds.get('start') and clip.left_img_paths and clip.stereo_depth_p
     <section id="structure">
         <div class="container">
             <h2>Dataset Structure</h2>
+            <p>The dataset is organised by the Specimen / Session / Clip hierarchy. Session-level folders hold the full unrectified images, while clip-level folders hold the rectified, per-clip data.</p>
             <div class="structure-tree">
 d4d_dataset/
-└── specimen_1/
-    └── 2025_03_06-16_49_40/
-        ├── clips.json
-        ├── camera_info/
-        ├── pointcloud/
+└── specimen_1/                          # a Specimen (one porcine cadaver)
+    └── 2025_03_06-16_49_40/             # a Session (continuous recording)
+        ├── clips.json                   # per-clip start/end frames and point clouds
+        ├── camera_info/                 # specimen-level calibration
+        ├── pointcloud/                  # structured-light point clouds
+        ├── tf/                          # tracked transforms (Polaris)
+        ├── left_images/                 # session-level UNRECTIFIED endoscope images
+        ├── right_images/
+        ├── depth_images/                # structured-light depth images
+        ├── color_images/                # structured-light colour images
+        ├── snr_images/                  # structured-light SNR images
+        ├── masks/
         └── clips/
-            └── Clip_1/
-                ├── left_images_rect/
+            └── Clip_1/                  # a Clip (one tissue-manipulation segment)
+                ├── Clip_1.mp4           # clip preview video
+                ├── left_images_rect/    # clip-level RECTIFIED endoscope images
                 ├── right_images_rect/
-                ├── stereo_depth/
+                ├── left_images_rect_masks/
+                ├── stereo_depth/        # stereo depth maps (.npy, metres)
+                ├── zivid_images/        # structured-light start/end captures
+                ├── zivid_masks/         # manual instrument masks
+                ├── curated_camera_pose_start.txt
+                ├── curated_camera_pose_end.txt
+                ├── pose_bounds.npy      # LLFF-format camera poses and bounds
                 └── camera_info/
             </div>
         </div>

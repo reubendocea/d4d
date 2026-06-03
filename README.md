@@ -20,11 +20,11 @@ Hierarchical dataset loader for surgical stereo reconstruction with Open3D visua
   <img src="docs/files/ExperimentalScene_1_blur_crop.jpg" width="700" alt="Experimental Setup"/>
 </p>
 
-Data were acquired from porcine cadaver sessions using a **da Vinci Xi** stereo endoscope and a **Zivid** structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.
+Data were acquired from porcine cadavers using a **da Vinci Xi** stereo endoscope and a **Zivid** structured-light camera, registered via optical tracking. The dataset enables quantitative geometric evaluation of 3D reconstruction in both visible and occluded regions.
 
 ## Sample Sessions
 
-Each session contains multiple clips showing tissue manipulations with paired endoscopic video and structured-light geometry.
+The dataset follows a three-level hierarchy: each **Specimen** (one porcine cadaver) contains one or more **Sessions** (continuous recordings, named by date and time), and each **Session** contains one or more **Clips** (the individual tissue-manipulation segments). Each item below is one **Session**, and every Session holds one or more Clips with paired endoscopic video and structured-light geometry.
 
 **Summary images** display (left to right, for each clip row):
 1. **Left endoscopic image** - Rectified stereo camera view
@@ -135,18 +135,34 @@ if clip.pointclouds.get('start') and clip.left_img_paths and clip.stereo_depth_p
 
 ## Dataset Structure
 
+The dataset is organised by the Specimen / Session / Clip hierarchy. Session-level folders hold the full unrectified images, while clip-level folders hold the rectified, per-clip data.
+
 ```
 d4d_dataset/
-└── specimen_1/
-    └── 2025_03_06-16_49_40/
-        ├── clips.json
-        ├── camera_info/
-        ├── pointcloud/
+└── specimen_1/                          # a Specimen (one porcine cadaver)
+    └── 2025_03_06-16_49_40/             # a Session (continuous recording)
+        ├── clips.json                   # per-clip start/end frames and point clouds
+        ├── camera_info/                 # specimen-level calibration
+        ├── pointcloud/                  # structured-light point clouds
+        ├── tf/                          # tracked transforms (Polaris)
+        ├── left_images/                 # session-level UNRECTIFIED endoscope images
+        ├── right_images/
+        ├── depth_images/                # structured-light depth images
+        ├── color_images/                # structured-light colour images
+        ├── snr_images/                  # structured-light SNR images
+        ├── masks/
         └── clips/
-            └── Clip_1/
-                ├── left_images_rect/
+            └── Clip_1/                  # a Clip (one tissue-manipulation segment)
+                ├── Clip_1.mp4           # clip preview video
+                ├── left_images_rect/    # clip-level RECTIFIED endoscope images
                 ├── right_images_rect/
-                ├── stereo_depth/
+                ├── left_images_rect_masks/
+                ├── stereo_depth/        # stereo depth maps (.npy, metres)
+                ├── zivid_images/        # structured-light start/end captures
+                ├── zivid_masks/         # manual instrument masks
+                ├── curated_camera_pose_start.txt
+                ├── curated_camera_pose_end.txt
+                ├── pose_bounds.npy      # LLFF-format camera poses and bounds
                 └── camera_info/
 ```
 
