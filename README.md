@@ -168,10 +168,10 @@ d4d_dataset/
 
 ## Calibration
 
-The camera calibration and the corresponding checkerboard pattern are provided in the [`files/`](files/) folder:
+The camera calibration and the corresponding checkerboard pattern are provided in [`files/sample_calibration.tar.gz`](files/sample_calibration.tar.gz). It extracts to a single `sample_calibration/` folder containing:
 
-- [`files/250605_calibration.tar.gz`](files/250605_calibration.tar.gz): the stereo camera calibration for one representative session, containing the left and right checkerboard images and the resulting intrinsics (`left.yaml`, `right.yaml`, `ost.txt`).
-- [`files/checkerboard_9x10_10mm.pdf`](files/checkerboard_9x10_10mm.pdf): the checkerboard pattern used for calibration (9x10, 10 mm squares).
+- The stereo camera calibration for one representative session: the left and right checkerboard images and the resulting intrinsics (`left.yaml`, `right.yaml`, `ost.txt`).
+- The checkerboard pattern used for calibration, `checkerboard_9x10_10mm.pdf` (9x10, 10 mm squares).
 
 ## Dependencies
 
