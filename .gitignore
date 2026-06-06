@@ -1,0 +1,11 @@
+__pycache__
+*/__pycache__
+test/test_outputs
+test_outputs
+*videos
+figures*
+results*
+*.egg-info/
+d4d/preprocessing/check_dimensions.py
+dims.csv
+test_output

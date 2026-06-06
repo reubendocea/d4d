@@ -10,7 +10,7 @@ Hierarchical dataset loader for surgical stereo reconstruction with Open3D visua
 
 > **View the [Project Page](https://reubendocea.github.io/d4d/) for the best experience with fullscreen videos and interactive navigation.**
 
-**Contents:** [Experimental Setup](#experimental-setup) | [Sample Sessions](#sample-sessions) | [Installation](#installation) | [Usage](#usage) | [Dataset Structure](#dataset-structure) | [Dependencies](#dependencies)
+**Contents:** [Experimental Setup](#experimental-setup) | [Sample Sessions](#sample-sessions) | [Installation](#installation) | [Usage](#usage) | [Dataset Structure](#dataset-structure) | [Calibration](#calibration) | [Dependencies](#dependencies)
 
 ---
 
@@ -165,6 +165,13 @@ d4d_dataset/
                 ├── pose_bounds.npy      # LLFF-format camera poses and bounds
                 └── camera_info/
 ```
+
+## Calibration
+
+The camera calibration and the corresponding checkerboard pattern are provided in the [`files/`](files/) folder:
+
+- [`files/250605_calibration.tar.gz`](files/250605_calibration.tar.gz): the stereo camera calibration for one representative session, containing the left and right checkerboard images and the resulting intrinsics (`left.yaml`, `right.yaml`, `ost.txt`).
+- [`files/checkerboard_9x10_10mm.pdf`](files/checkerboard_9x10_10mm.pdf): the checkerboard pattern used for calibration (9x10, 10 mm squares).
 
 ## Dependencies
 
