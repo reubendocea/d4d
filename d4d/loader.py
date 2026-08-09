@@ -262,6 +262,10 @@ class Clip:
         Returns:
             Dictionary with mask names as keys and mask arrays as values
         """
+        # Expected dimensions for rectified images
+        RECTIFIED_HEIGHT = 512
+        RECTIFIED_WIDTH = 640
+
         mask_dirs = {
             'zivid': self.path / 'zivid_masks',
             'rectified': self.path / 'left_images_rect_masks',
@@ -276,6 +280,9 @@ class Clip:
         for mask_file in sorted(mask_dir.glob('*.png')):
             mask = cv2.imread(str(mask_file), cv2.IMREAD_GRAYSCALE)
             if mask is not None:
+                # Resize rectified masks to standard dimensions if needed
+                if mask_type == 'rectified' and mask.shape[:2] != (RECTIFIED_HEIGHT, RECTIFIED_WIDTH):
+                    mask = cv2.resize(mask, (RECTIFIED_WIDTH, RECTIFIED_HEIGHT), interpolation=cv2.INTER_NEAREST)
                 masks[mask_file.stem] = mask
 
         return masks
