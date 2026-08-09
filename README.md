@@ -32,7 +32,7 @@ The dataset follows a three-level hierarchy: each **Specimen** (one porcine cada
 3. **Stereo depth map** - Depth estimated from stereo matching
 4. **SLC depth rendering** - Structured-light depth from the curated pose
 
-**Quick Navigation:** [Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3)
+**Quick Navigation:** [Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3) | [Session 4 (moved camera)](#session-4)
 
 ---
 
@@ -71,7 +71,7 @@ The dataset follows a three-level hierarchy: each **Specimen** (one porcine cada
 ---
 
 <a id="session-3"></a>
-### Specimen 5 - Session 2025_09_09-15_44_02 &nbsp; [← Prev](#session-2)
+### Specimen 5 - Session 2025_09_09-15_44_02 &nbsp; [← Prev](#session-2) | [Next →](#session-4)
 
 <p align="center">
   <img src="docs/files/specimen_5_2025_09_09-15_44_02_summary.jpg" width="800" alt="Specimen 5 Session 2 Summary"/>
@@ -82,6 +82,25 @@ The dataset follows a three-level hierarchy: each **Specimen** (one porcine cada
 <td align="center"><b><a href="docs/files/2025_09_09-15_44_02_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="docs/files/2025_09_09-15_44_02_combined_2x2.mp4" controls height="280"></video></td>
 <td align="center"><b><a href="docs/files/2025_09_09-15_44_02_compressed.mp4">Endoscope Video</a></b><br/><video src="docs/files/2025_09_09-15_44_02_compressed.mp4" controls height="280"></video></td>
 <td align="center"><b><a href="docs/files/2025_09_09-15_44_02_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="docs/files/2025_09_09-15_44_02_zivid_startend.mp4" controls height="280"></video></td>
+</tr>
+</table>
+
+---
+
+<a id="session-4"></a>
+### Specimen 5 - Session 2025_09_09-16_05_53 (moved camera) &nbsp; [← Prev](#session-3)
+
+In a **moved-camera session** the endoscope is repositioned partway through, giving two viewpoints
+within one continuous recording. The Zivid camera does not move, so only the endoscopic view changes.
+
+<p align="center">
+  <img src="docs/files/specimen_5_2025_09_09-16_05_53_summary.jpg" width="800" alt="Moved Camera Sequence"/>
+</p>
+
+<table>
+<tr>
+<td align="center"><b><a href="docs/files/2025_09_09-16_05_53_combined_2x2.mp4">Combined 2x2 View</a></b><br/><video src="docs/files/2025_09_09-16_05_53_combined_2x2.mp4" controls height="280"></video></td>
+<td align="center"><b><a href="docs/files/2025_09_09-16_05_53_zivid_startend.mp4">Zivid Start/End</a></b><br/><video src="docs/files/2025_09_09-16_05_53_zivid_startend.mp4" controls height="280"></video></td>
 </tr>
 </table>
 
