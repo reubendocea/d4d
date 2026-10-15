@@ -1,0 +1,68 @@
+cff-version: 1.2.0
+message: "If you use the D4D dataset or this repository in your work, please cite our paper."
+title: "D4D - The Dresden Dataset for 4D Reconstruction"
+type: software
+repository-code: "https://github.com/reubendocea/d4d"
+authors:
+  - family-names: Docea
+    given-names: Reuben
+  - family-names: Younis
+    given-names: Rayan
+  - family-names: Long
+    given-names: Yonghao
+  - family-names: Fleury
+    given-names: Maxime
+  - family-names: Xu
+    given-names: Jinjing
+  - family-names: Li
+    given-names: Chenyang
+  - family-names: Schulze
+    given-names: André
+  - family-names: Wierick
+    given-names: Ann
+  - family-names: Bender
+    given-names: Johannes
+  - family-names: Pfeiffer
+    given-names: Micha
+  - family-names: Dou
+    given-names: Qi
+  - family-names: Wagner
+    given-names: Martin
+  - family-names: Speidel
+    given-names: Stefanie
+preferred-citation:
+  type: article
+  title: "The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes"
+  authors:
+    - family-names: Docea
+      given-names: Reuben
+    - family-names: Younis
+      given-names: Rayan
+    - family-names: Long
+      given-names: Yonghao
+    - family-names: Fleury
+      given-names: Maxime
+    - family-names: Xu
+      given-names: Jinjing
+    - family-names: Li
+      given-names: Chenyang
+    - family-names: Schulze
+      given-names: André
+    - family-names: Wierick
+      given-names: Ann
+    - family-names: Bender
+      given-names: Johannes
+    - family-names: Pfeiffer
+      given-names: Micha
+    - family-names: Dou
+      given-names: Qi
+    - family-names: Wagner
+      given-names: Martin
+    - family-names: Speidel
+      given-names: Stefanie
+  journal: "Scientific Data"
+  volume: 13
+  start: 1334
+  year: 2026
+  doi: "10.1038/s41597-026-08289-7"
+  url: "https://doi.org/10.1038/s41597-026-08289-7"

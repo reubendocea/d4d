@@ -2,15 +2,38 @@
 
 Dataset loader for **D4D - The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes**.
 
+[![Paper](https://img.shields.io/badge/Paper-Scientific%20Data-red)](https://doi.org/10.1038/s41597-026-08289-7)
 [![DOI](https://img.shields.io/badge/DOI-10.25532%2FOPARA--1033-blue)](https://doi.org/10.25532/OPARA-1033)
 
-**[Download the Dataset](https://doi.org/10.25532/OPARA-1033)**
+**[Download the Dataset](https://doi.org/10.25532/OPARA-1033)** | **[Read the Paper](https://doi.org/10.1038/s41597-026-08289-7)** ([PDF](docs/files/D4D_Scientific_Data_2026.pdf))
 
 Hierarchical dataset loader for surgical stereo reconstruction with Open3D visualization.
 
 > **View the [Project Page](https://reubendocea.github.io/d4d/) for the best experience with fullscreen videos and interactive navigation.**
 
-**Contents:** [Experimental Setup](#experimental-setup) | [Sample Sessions](#sample-sessions) | [Installation](#installation) | [Usage](#usage) | [Dataset Structure](#dataset-structure) | [Calibration](#calibration) | [Dependencies](#dependencies)
+**Contents:** [Citation](#citation) | [Experimental Setup](#experimental-setup) | [Sample Sessions](#sample-sessions) | [Installation](#installation) | [Usage](#usage) | [Dataset Structure](#dataset-structure) | [Calibration](#calibration) | [Dependencies](#dependencies)
+
+---
+
+## Citation
+
+**If you use the D4D dataset or this repository in your work, please cite our paper:**
+
+> Docea, R., Younis, R., Long, Y., Fleury, M., Xu, J., Li, C., Schulze, A., Wierick, A., Bender, J., Pfeiffer, M., Dou, Q., Wagner, M. & Speidel, S. The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes. *Scientific Data* **13**, 1334 (2026). https://doi.org/10.1038/s41597-026-08289-7
+
+```bibtex
+@article{docea2026d4d,
+  title   = {The Dresden Dataset for 4D Reconstruction of Non-Rigid Abdominal Surgical Scenes},
+  author  = {Docea, Reuben and Younis, Rayan and Long, Yonghao and Fleury, Maxime and Xu, Jinjing and Li, Chenyang and Schulze, Andr{\'e} and Wierick, Ann and Bender, Johannes and Pfeiffer, Micha and Dou, Qi and Wagner, Martin and Speidel, Stefanie},
+  journal = {Scientific Data},
+  volume  = {13},
+  pages   = {1334},
+  year    = {2026},
+  doi     = {10.1038/s41597-026-08289-7}
+}
+```
+
+The paper is open access under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). A copy is included in this repository at [`docs/files/D4D_Scientific_Data_2026.pdf`](docs/files/D4D_Scientific_Data_2026.pdf).
 
 ---
 
